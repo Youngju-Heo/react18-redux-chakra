@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import path from 'path';
 import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import { BaseHrefWebpackPlugin } from "base-href-webpack-plugin";

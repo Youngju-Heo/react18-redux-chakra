@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import path from 'path';
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
