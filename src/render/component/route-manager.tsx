@@ -21,7 +21,7 @@ const RouteManagerPrivate = (props: RouteManagerPrivateProps): JSX.Element => {
   // console.log("RouteManager location", location);
   React.useEffect(() => {
     const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href") as string;
-    console.log("init", location);
+    // console.log("init", location);
     let pathName = location.pathname;
     if (pathName.startsWith(baseUrl)) {
       pathName = `/${pathName.substring(baseUrl.length)}`;

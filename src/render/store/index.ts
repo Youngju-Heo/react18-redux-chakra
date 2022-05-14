@@ -1,6 +1,6 @@
-import countReducer from "./counter/counter-slice";
+import counterReducer from "./counter/counter-slice";
 import routerReducer from "./router/router-slice";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import { configureStore } from "@reduxjs/toolkit";
 
 // export interface ApplicationState {
@@ -9,13 +9,17 @@ import { configureStore } from "@reduxjs/toolkit";
 // }
 
 export const reducer = {
-  counter: countReducer,
+  counter: counterReducer,
   router: routerReducer,
 };
 
 const store = configureStore({
   reducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    }); // .concat(logger);
+  },
   devTools: process.env.NODE_ENV !== "production",
 });
 
