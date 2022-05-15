@@ -23,6 +23,9 @@ const RouteManagerPrivate = (props: RouteManagerPrivateProps): JSX.Element => {
     const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href") as string;
     // console.log("init", location);
     let pathName = location.pathname;
+    if (baseUrl.startsWith(pathName)) {
+      pathName = baseUrl;
+    }
     if (pathName.startsWith(baseUrl)) {
       pathName = `/${pathName.substring(baseUrl.length)}`;
     }
@@ -43,6 +46,7 @@ const RouteManagerPrivate = (props: RouteManagerPrivateProps): JSX.Element => {
       ? `${props.baseUrl}${props.moveTo.substring(1)}`
       : `${props.baseUrl}${props.moveTo}`;
     navigate(nextLocation);
+
     // eslint-disable-next-line
   }, [props.moveTo]);
 
