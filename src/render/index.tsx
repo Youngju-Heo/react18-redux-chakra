@@ -8,6 +8,7 @@ import isElectron from "is-electron";
 import store from "./store";
 import App from "./app";
 import RouteManager from "./component/route-manager";
+import baseTheme from "./base-theme";
 
 const container = document.getElementById("root");
 
@@ -26,9 +27,11 @@ if (container) {
   createRoot(container)?.render(
     <Provider store={store}>
       <RouteManager>
-        <ChakraProvider>
-          <App />
-        </ChakraProvider>
+        <React.StrictMode>
+          <ChakraProvider theme={baseTheme}>
+            <App />
+          </ChakraProvider>
+        </React.StrictMode>
       </RouteManager>
     </Provider>
   );
