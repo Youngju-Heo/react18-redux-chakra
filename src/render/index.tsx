@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
 import { ChakraProvider } from "@chakra-ui/react";
 import isElectron from "is-electron";
+import "@fontsource/noto-sans-kr/300.css";
 
 import store from "./store";
 import App from "./app";

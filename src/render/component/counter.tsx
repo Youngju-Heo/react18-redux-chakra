@@ -2,7 +2,7 @@ import React from "react";
 import { RootState } from "../store";
 import { connect } from "react-redux";
 import { CounterState, countDecrement, countIncrement, countIncrementByAmount } from "../store/counter/counter-slice";
-import { Badge, Center, Flex, HStack, IconButton, VStack } from "@chakra-ui/react";
+import { Badge, Box, Center, HStack, IconButton, VStack } from "@chakra-ui/react";
 import { MdAddCircleOutline, MdOutlineLooksTwo, MdRemoveCircleOutline } from "react-icons/md";
 
 interface CounterProps {
@@ -13,7 +13,7 @@ interface CounterProps {
 }
 const Counter = (props: CounterProps): JSX.Element => {
   return (
-    <Flex h="100%" w="100%">
+    <Box w="100%">
       <Center flexGrow={1}>
         <VStack m={4}>
           <Badge>
@@ -43,7 +43,7 @@ const Counter = (props: CounterProps): JSX.Element => {
           </HStack>
         </VStack>
       </Center>
-    </Flex>
+    </Box>
   );
 };
 

@@ -4,10 +4,11 @@ import Counter from "./component/counter";
 import { connect } from "react-redux";
 import { LocationInfo, locMoveTo } from "./store/router/router-slice";
 import { RootState } from "./store";
-import { HStack, IconButton, Link, Spacer, useColorMode } from "@chakra-ui/react";
+import { HStack, IconButton, Link, Spacer, useColorMode, VStack } from "@chakra-ui/react";
 import Help from "./component/help";
 import { BiMoon, BiSun } from "react-icons/bi";
 import UnderConstruction from "./component/under-construction";
+import CounterMonitor from "./component/counter-monitor";
 
 interface AppProps {
   location: LocationInfo;
@@ -15,11 +16,6 @@ interface AppProps {
 }
 const App = (props: AppProps): JSX.Element => {
   const { colorMode, setColorMode } = useColorMode();
-  // useEffect(() => {
-  //   if (colorMode !== "dark") {
-  //     setColorMode("dark");
-  //   }
-  // }, [colorMode, setColorMode]);
 
   return (
     <React.Fragment>
@@ -35,7 +31,12 @@ const App = (props: AppProps): JSX.Element => {
           onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
         />
       </HStack>
-      {props.location.pathname === "/" && <Counter />}
+      {props.location.pathname === "/" && (
+        <VStack>
+          <Counter />
+          <CounterMonitor />
+        </VStack>
+      )}
       {props.location.pathname === "/help" && <Help />}
       {props.location.pathname !== "/" && props.location.pathname !== "/help" && <UnderConstruction />}
     </React.Fragment>
